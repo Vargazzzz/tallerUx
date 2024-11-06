@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Inicio</title>
+    <title>Document</title>
     @vite('resources/css/app.css')
 </head>
 
 <body>
-    <main class="container bg-black h-44 text-white">Prueba de tailwind</main>
+
 </body>
 
 </html>
