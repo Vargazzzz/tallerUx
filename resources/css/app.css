@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=League+Spartan:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Young+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,7 +7,32 @@
 @layer base {
     html {
         scroll-behavior: smooth;
+        font-family: 'Nunito', sans-serif;
     }
+
+    .container-HL{
+        @apply w-full h-screen bg-cover bg-center;
+        &.bg-w{
+            background-color: #ffffff3a;
+        }
+    }
+
+    .btn{
+        @apply w-fit bg-black text-white flex justify-center items-center gap-2 px-4 py-2 rounded-md;
+
+        &:hover {
+            @apply bg-black/85;
+        }
+    }
+
+    .input {
+        @apply flex justify-start items-center gap-3 p-2 border-2 border-gray-bike-200 rounded-md;
+
+        &:focus-within {
+            @apply transition-colors duration-500 border-gray-bike-500;
+        }
+    }
+
 }
 
 @layer components {
