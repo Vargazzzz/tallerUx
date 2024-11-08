@@ -33,6 +33,21 @@
         }
     }
 
+    nav > ul > li {
+        @apply flex justify-start items-center gap-2.5 p-3 pl-5 text-white rounded-r-full ease;
+        &:hover{
+            @apply bg-white text-black ;
+        }
+        &.active {
+            @apply bg-white text-black ;
+        }
+        a{
+            @apply w-full;
+        }
+        svg {
+            @apply w-8 h-8 hover:text-black;
+        }
+    }
 }
 
 @layer components {
