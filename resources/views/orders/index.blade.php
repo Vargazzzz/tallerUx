@@ -12,7 +12,7 @@
             </svg>
             <input type="text" placeholder="Buscar" class="outline-none">
         </div>
-        <a href="/clientes/crear" class="btn ease">Añadir
+        <a href="/bicicletas/crear" class="btn ease">Añadir
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
                 <path fill="currentColor" fill-rule="evenodd" d="M11 11V4h2v7h7v2h-7v7h-2v-7H4v-2z" />
             </svg>
@@ -22,11 +22,11 @@
         <thead>
             <tr>
                 <th>No ID</th>
-                <th>Imagen</th>
-                <th>Nombre</th>
+                <th>Cliente</th>
                 <th>Código</th>
-                <th>Teléfono</th>
-                <th>Correo</th>
+                <th>Descripcion</th>
+                <th>Monto</th>
+                <th>Status</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -34,17 +34,17 @@
             <tr>
                 <td>1741D</td>
                 <td>
-                    <div class="flex items-center justify-center gap-5 ">
-                        <img src="{{ asset('/css/logos/logo-negro.png') }}" class="w-10 h-10 rounded-sm">
-                    </div>
-                </td>
-                <td>
-                    José Vargas
+                    <div class="flex items-center gap-5 ">
+                        <img src="{{ asset('/css/logos/logo-negro.png') }}" class="w-10 h-10 rounded-sm"> José Vargas
                     </div>
                 </td>
                 <td>12569756</td>
-                <td>041425935</td>
-                <td>josevargas@gmail.com</td>
+                <td>180$</td>
+                <td>
+                    {{-- aca debes hacer una logica ya que dependiendo el estado es el color que debe aparecer esta es la base, debes hacer comparaciones de acuerdo los valores que hagas en la base de datos. Supongamos cada estado debes compararlo, de acuerdo al que sea es los estilos que tendra exiten 3 estados el que arroje verdadero es el color del cual va a mostrar --}}
+                    <span class="inline-flex items-center px-2 py-1 rounded text-sm font-medium bg-green-800 text-white">Por
+                        revisar</span>
+                </td>
                 <td>
                     <div class="flex justify-evenly">
                         <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -60,13 +60,17 @@
             <tr>
                 <td>1741D</td>
                 <td>
-                    <div class="flex items-center justify-center gap-5 ">
+                    <div class="flex items-center gap-5 ">
                         <img src="{{ asset('/css/logos/logo-negro.png') }}" class="w-10 h-10 rounded-sm"> José Vargas
                     </div>
                 </td>
                 <td>12569756</td>
-                <td>041425935</td>
-                <td>josevargas@gmail.com</td>
+                <td>180$</td>
+                <td>
+                    {{-- aca debes hacer una logica ya que dependiendo el estado es el color que debe aparecer esta es la base, debes hacer comparaciones de acuerdo los valores que hagas en la base de datos. Supongamos cada estado debes compararlo, de acuerdo al que sea es los estilos que tendra exiten 3 estados el que arroje verdadero es el color del cual va a mostrar --}}
+                    <span class="inline-flex items-center px-2 py-1 rounded text-sm font-medium bg-green-800 text-white">Por
+                        revisar</span>
+                </td>
                 <td>
                     <div class="flex justify-evenly">
                         <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -82,13 +86,17 @@
             <tr>
                 <td>1741D</td>
                 <td>
-                    <div class="flex items-center justify-center gap-5 ">
+                    <div class="flex items-center gap-5 ">
                         <img src="{{ asset('/css/logos/logo-negro.png') }}" class="w-10 h-10 rounded-sm"> José Vargas
                     </div>
                 </td>
                 <td>12569756</td>
-                <td>041425935</td>
-                <td>josevargas@gmail.com</td>
+                <td>180$</td>
+                <td>
+                    {{-- aca debes hacer una logica ya que dependiendo el estado es el color que debe aparecer esta es la base, debes hacer comparaciones de acuerdo los valores que hagas en la base de datos. Supongamos cada estado debes compararlo, de acuerdo al que sea es los estilos que tendra exiten 3 estados el que arroje verdadero es el color del cual va a mostrar --}}
+                    <span class="inline-flex items-center px-2 py-1 rounded text-sm font-medium bg-green-800 text-white">Por
+                        revisar</span>
+                </td>
                 <td>
                     <div class="flex justify-evenly">
                         <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -104,16 +112,4 @@
 
         </tbody>
     </table>
-    mostrar clientes
-    <ul>
-        @foreach ($clients as $client)
-            <li>
-                <a href="/clientes/{{ $client->id }}">
-                    {{ $client->name }}
-                </a>
-            </li>
-        @endforeach
-    </ul>
-
-    {{ $clients->links() }}
 @endsection

@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <main class="w-full h-full">
+    <main class="w-full h-full font-[Lato]">
         <div class="grid grid-cols-[220px_1fr] grid-rows-[1fr_auto] min-h-dvh">
             <header class="bg-black w-[220px] h-full flex flex-col">
                 <img src="{{ asset('/css/logos/logo-negro.png') }}">
@@ -37,12 +37,12 @@
                         <li><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 16 16">
                                 <path fill="none" stroke="currentColor" stroke-linejoin="round"
                                     d="M5.5 2.5h-2v12h9v-12h-2m-5 6l2 2L11 7M5.5 1.5h5l-.625 2h-3.75z" />
-                            </svg><a href="/">Ordenes</a><svg xmlns="http://www.w3.org/2000/svg"
+                            </svg><a href="/ordenes">Ordenes</a><svg xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24">
                                 <path fill="black"
                                     d="M12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22" />
                             </svg></li>
-                        <li><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                        <li><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
                                 <g fill="none" stroke="currentColor">
                                     <path
                                         d="M4.5 8.711c0-.601 0-.902.086-1.185s.252-.534.586-1.034l.14-.21c.582-.873.872-1.309 1.315-1.545c.442-.237.966-.237 2.014-.237h6.718c1.048 0 1.572 0 2.014.237c.442.236.733.672 1.314 1.544l.141.211c.334.5.5.75.586 1.034c.086.283.086.584.086 1.185V15.5c0 1.886 0 2.828-.586 3.414s-1.528.586-3.414.586h-7c-1.886 0-2.828 0-3.414-.586S4.5 17.386 4.5 15.5z" />
@@ -83,14 +83,14 @@
                     </ul>
                 </nav>
             </header>
-            <div>
+            <div class="content">
                 <!-- main content -->
                 @yield('content')
             </div>
         </div>
         <!-- footer -->
-        <footer>
-            Footer
+        <footer class="h-[70px] bg-black text-white flex items-center pl-5">
+            © 2024 Ultrabikex
         </footer>
     </main>
 

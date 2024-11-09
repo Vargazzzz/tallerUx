@@ -48,6 +48,26 @@
             @apply w-8 h-8 hover:text-black;
         }
     }
+
+    .content{
+        @apply mx-auto w-4/5 flex flex-col gap-10 py-10;
+    }
+
+    table > thead > tr > th {
+        @apply px-4 py-2 border-b border-black;
+    }
+
+    table > tbody > tr > td {
+        @apply px-4 py-2 text-center border-b border-gray-bike-400;
+    }
+
+    .bg-preview{
+        background-image: radial-gradient(circle at center, #000, #fff);
+    }
+
+    .style-preview{
+        @apply border-b border-black py-3 flex gap-2.5
+    }
 }
 
 @layer components {
