@@ -1,4 +1,79 @@
-<!DOCTYPE html>
+@extends('layouts.template')
+@section('content')
+    <a href="/bicicletas" class="btn ease">Volver a bicicletas</a>
+    <div class="flex flex-col gap-5">
+        <div class="flex justify-between w-full ">
+            <div class="flex items-center gap-2.5">
+                <h1 class="text-[24px] font-bold">Vista previa</h1>
+            </div>
+        </div>
+        <div class="w-full h-[0.5px] bg-preview"></div>
+    </div>
+    <div class="grid grid-rows-[170px_1fr] ">
+        <div class="shadow-[0px_4px_4px_rgba(0,0,0,0.3)] w-[170px] h-[170px] rounded-2xl flex justify-center items-center">
+        </div>
+        <form action="/bicicletas/{{ $bicycle->id }}" method="POST" class="grid grid-cols-2 gap-10 mt-4">
+            <div>
+                <div class="style-preview items-center">
+                    <label>Bicicleta</label>
+                    <Icon name="ep:arrow-down" class="w-4 h-4" style="color: black" />
+                </div>
+                <div class="style-preview">
+                    <label>SKU:</label>
+                    <input type="text" class="outline-none">
+                </div>
+                <div class="style-preview">
+                    <label>Modelo:</label>
+                    <input type="text" class="outline-none">
+                </div>
+                <div class="style-preview">
+                    <label>Marca:</label>
+                    <input type="text" class="outline-none">
+                </div>
+                <div class="style-preview">
+                    <label>Tipo:</label>
+                    <input type="text" class="outline-none">
+                </div>
+                <div class="style-preview">
+                    <label>Color:</label>
+                    <input type="text" class="outline-none">
+                </div>
+                <div class="style-preview">
+                    <label>Ultima orden: </label>
+                    <input type="text" class="outline-none">
+                </div>
+                <div class="style-preview">
+                    <label>Fecha: </label>
+                    <input type="text" class="outline-none">
+                </div>
+            </div>
+            <div class="flex flex-col gap-5">
+                <div>
+                    <div class="style-preview items-center">
+                        <label>Cliente</label>
+                    </div>
+                    <div class="style-preview">
+                        <label>Nombre:</label>
+                        <input type="text" class="outline-none">
+                    </div>
+                    <div class="style-preview">
+                        <label>Teléfono:</label>
+                        <input type="text" class="outline-none">
+                    </div>
+                    <div class="style-preview">
+                        <label>Correo:</label>
+                        <input type="text" class="outline-none">
+                    </div>
+                </div>
+                <button type="button" class="btn ease self-end">
+                    Guardar
+                </button>
+            </div>
+        </form>
+    </div>
+@endsection
+
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -62,4 +137,4 @@
 
 
 </body>
-</html>
+</html> --}}
