@@ -34,4 +34,10 @@ class Component extends Model
             }
         );
     }
+
+    public function order_detail(){
+        return $this->hasMany(Order_detail::class);
+    }
+
+
 }

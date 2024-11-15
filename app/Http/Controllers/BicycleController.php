@@ -28,10 +28,28 @@ class BicycleController extends Controller
             'model' => 'required|min:5|max:255',
             'brand' => 'required|min:5|max:255',
             'color' => 'required|min:5|max:255',
-            'client_id' => 'required',
+            /*'client_id' => 'required',*/
+            'ci' => 'required|exists:clients,ci'
+            
         ]);
-        
-        Bicycle::create($request->all());
+
+        $ci= $request->ci;
+        $client= Client::where('ci',$ci)->first();
+
+        if(!$client){
+            return redirect()->back()->withErrors(['ci'=>'Cliente no encontrado']);
+        }
+
+        $bicycleData= $request->only(['serial',
+        'type',
+        'model',
+        'brand',
+        'color',]);
+        $bicycleData['client_id'] = $client->id;
+
+        Bicycle::create($bicycleData);
+
+        /*Bicycle::create($request->all());*/
         return redirect('/bicicletas');
     }
 
@@ -51,11 +69,30 @@ class BicycleController extends Controller
             'model' => 'required|min:5|max:255',
             'brand' => 'required|min:5|max:255',
             'color' => 'required|min:5|max:255',
-            'client_id' => 'required',
+            'ci' => 'required',
         ]);
-        
-        $bicycle->update($request->all());
+
+        $newCi=$request->ci;
+        $newClient = Client::where('ci',$newCi)->first();
+
+        if(!$newClient){
+            return redirect()->back()->withErrors(['ci'=>'Cliente no encontrado']);
+        }
+
+        $bicycle->update([
+            'serial' => $request->serial,
+            'type' => $request-> type,
+            'model' => $request->model,
+            'brand'=> $request->brand,
+            'color'=> $request->color,
+            'client_id'=>$newClient->id
+        ]);
+
+        /*$bicycle->update($request->all());*/
+      
         return redirect("/bicicletas/{$bicycle->id}");
+
+      
 
     }
 

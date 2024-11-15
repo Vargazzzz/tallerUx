@@ -3,8 +3,12 @@
 use App\Http\Controllers\BicycleController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ComponentController;
+use App\Http\Controllers\MechanicController;
+use App\Http\Controllers\OrderController;
 use App\Models\Bicycle;
 use App\Models\Client;
+use App\Models\Mechanic;
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -54,7 +58,35 @@ Route::get('/componentes/{component}/edit',[ComponentController::class,'edit']);
 
 Route::put('componentes/{component}',[ComponentController::class,'update']);
 
-Route::delete('/bicicletas/{bicycle}',[BicycleController::class,'destroy']);
+Route::delete('/componentes/{component}',[ComponentController::class,'destroy']);
+
+
+Route::get('/mecanico',[MechanicController::class, 'index']);
+
+Route::get('/mecanico/crear',[MechanicController::class,'create']);
+
+Route::post('/mecanico', [MechanicController::class,'store']);
+
+Route::get('/mecanico/{mechanic}',[MechanicController::class,'show']);
+
+Route::get('/mecanico/{mechanic}/edit',[MechanicController::class,'edit']);
+
+Route::put('mecanico/{mechanic}',[MechanicController::class,'update']);
+
+Route::delete('/mecanico/{mechanic}',[MechanicController::class,'destroy']);
+
+
+Route::get('/ordenes', [OrderController::class, 'index']);
+
+Route::get('/ordenes/crear',[OrderController::class,'create']);
+
+Route::post('/ordenes', [OrderController::class,'store']);
+
+Route::get('/ordenes/{order}',[OrderController::class,'show']);
+
+Route::put('componentes/{component}',[ComponentController::class,'update']);
+
+
 
 
 

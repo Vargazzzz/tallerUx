@@ -24,6 +24,14 @@ class Client extends Model
         return $this->hasMany(Bicycle::class);
     }
 
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
+
+    public function findByCi($ci){
+        return static::where ('ci',$ci)->first();
+    }
+
     protected function name():Attribute{
         return Attribute::make(
             set: function($value){

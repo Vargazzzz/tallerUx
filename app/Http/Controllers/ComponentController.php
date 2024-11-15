@@ -55,5 +55,9 @@ class ComponentController extends Controller
 
     }
 
+    public function destroy(Component $component){
+        $component->delete();
+        return redirect('/componentes');
+    }
 
 }

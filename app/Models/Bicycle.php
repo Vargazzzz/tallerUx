@@ -26,6 +26,10 @@ class Bicycle extends Model
         return $this->belongsto(Client::class);
     }
 
+    public function orders(){
+        return $this->hasMany(Order::class);
+    }
+
     protected function serial():Attribute{
         return Attribute::make(
             set: function($value){

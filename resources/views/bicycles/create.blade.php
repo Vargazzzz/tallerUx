@@ -48,10 +48,10 @@
             <p>{{$message}}</p>
         @enderror
 
-        <label >id cliente</label>
-        <input type="number" name="client_id" value="{{old('client_id')}}">
+        <label >ci cliente</label>
+        <input type="number" name="ci" value="{{old('ci')}}">
 
-        @error('client_id')
+        @error('ci')
             <p>{{$message}}</p>
         @enderror
 
