@@ -10,6 +10,8 @@ class ComponentsOrders extends Model
 {
     use HasFactory;
 
+    protected $table='components_orders';
+
     protected $fillable=[
         'order_id',
         'component_id',
