@@ -1,5 +1,6 @@
 @extends('layouts.template')
 @section('content')
+<h1 class="title">Bicicletas</h1>
     <div class="flex justify-between">
         <div class="w-1/2 input">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -32,6 +33,15 @@
             </tr>
         </thead>
         <tbody>
+            {{-- @foreach ($bicycles as $bicycle)
+                <tr>
+                    <td>{{ $bicycle->serial }}</td>
+                    <td>{{ $bicycle->type }}</td>
+                    <td>{{ $bicycle->model }}</td>
+                    <td>{{ $bicycle->brand }}</td>
+                    <td>{{ $bicycle->color }}</td>
+                </tr>
+            @endforeach --}}
             <tr>
                 <td>1741D</td>
                 <td>

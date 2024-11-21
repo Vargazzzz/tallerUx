@@ -52,7 +52,9 @@
     .content{
         @apply mx-auto w-4/5 flex flex-col gap-10 py-10;
     }
-
+    .title{
+        @apply text-5xl font-semibold italic
+    }
     table > thead > tr > th {
         @apply px-4 py-2 border-b border-black;
     }
@@ -66,7 +68,10 @@
     }
 
     .style-preview{
-        @apply border-b border-black py-3 flex gap-2.5
+        @apply w-full border-b border-black py-3 flex gap-2.5;
+        input{
+            background-color: #fff;
+        }
     }
 }
 

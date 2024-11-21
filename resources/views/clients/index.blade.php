@@ -1,5 +1,6 @@
 @extends('layouts.template')
 @section('content')
+    <h1 class="title">Clientes</h1>
     <div class="flex justify-between">
         <div class="w-1/2 input">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -21,22 +22,40 @@
     <table>
         <thead>
             <tr>
-                <th>No ID</th>
-                <th>Imagen</th>
+                <th>ID</th>
+                {{-- <th>Imagen</th> --}}
                 <th>Nombre</th>
-                <th>Código</th>
+                {{-- <th>Código</th> --}}
                 <th>Teléfono</th>
                 <th>Correo</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
+            @foreach ($clients as $client)
+                <tr>
+                    <td>{{ $client->id }}</td>
+                    {{-- <td>
+                        <img src="{{ asset('/img/clientes/'.$client->id.'.jpg') }}" alt="Foto de cliente" class="w-10 h-10 rounded-sm">
+                    </td> --}}
+                    <td>{{ $client->name }}</td>
+                    <td>{{ $client->phone }}</td>
+                    <td>{{ $client->email }}</td>
+                    <td>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="m19.71 8.04l-2.34 2.33l-3.75-3.75l2.34-2.33c.39-.39 1.04-.39 1.41 0l2.34 2.34c.39.37.39 1.02 0 1.41M3 17.25L13.06 7.18l3.75 3.75L6.75 21H3zM16.62 5.04l-1.54 1.54l2.34 2.34l1.54-1.54zM15.36 11L13 8.64l-9 9.02V20h2.34z" />
+                        </svg></a>
+                    </td>
+                </tr>
+            @endforeach
             <tr>
                 <td>1741D</td>
-                <td>
+                {{-- <td>
                     <div class="flex items-center justify-center gap-5 ">
                         <img src="{{ asset('/css/logos/logo-negro.png') }}" class="w-10 h-10 rounded-sm">
-                    </div>
+                    </div> --}}
                 </td>
                 <td>
                     José Vargas
@@ -59,11 +78,11 @@
             </tr>
             <tr>
                 <td>1741D</td>
-                <td>
+                {{-- <td>
                     <div class="flex items-center justify-center gap-5 ">
                         <img src="{{ asset('/css/logos/logo-negro.png') }}" class="w-10 h-10 rounded-sm"> José Vargas
                     </div>
-                </td>
+                </td> --}}
                 <td>12569756</td>
                 <td>041425935</td>
                 <td>josevargas@gmail.com</td>
