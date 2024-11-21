@@ -36,7 +36,7 @@ class Component extends Model
     }
 
     public function order(){
-        return $this->belongsToMany(Order::class);
+        return $this->belongsToMany(Order::class,'components_orders')->withPivot('quantity', 'total')->withTimestamps();
     }
 
 
