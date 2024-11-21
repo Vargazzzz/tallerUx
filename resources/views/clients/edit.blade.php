@@ -12,10 +12,6 @@
     <form action="/clientes/{{ $client->id }}" method="POST" class="grid grid-cols-2 gap-10">
         <!-- col 1 -->
         <div class="flex flex-col justify-between">
-            <div
-                class="shadow-[0px_4px_4px_rgba(0,0,0,0.3)] w-[150px] h-[170px] rounded-2xl flex justify-center items-center">
-                <Icon name="bx:user" class="w-[100px] h-[100px]" />
-            </div>
             <div class="flex flex-col">
                 <div class="style-preview items-center">
                     <label>Cliente</label>
@@ -31,6 +27,10 @@
                 </div>
                 <div class="style-preview">
                     <label>Correo:</label>
+                    <input type="text" class="outline-none">
+                </div>
+                <div class="style-preview">
+                    <label>Direccion:</label>
                     <input type="text" class="outline-none">
                 </div>
             </div>

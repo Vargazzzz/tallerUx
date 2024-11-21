@@ -32,7 +32,7 @@ class Order extends Model
         return $this->belongsto(Mechanic::class);
     }
 
-    public function order_detail(){
-        return $this->hasMany(Order_detail::class);
+    public function component(){
+        return $this->hasMany(Component::class,'components_orders')->withPivot('quantity', 'total')->withTimestamps();
     }
 }

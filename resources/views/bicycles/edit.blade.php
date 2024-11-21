@@ -10,8 +10,6 @@
         <div class="w-full h-[0.5px] bg-preview"></div>
     </div>
     <div class="grid grid-rows-[170px_1fr] ">
-        <div class="shadow-[0px_4px_4px_rgba(0,0,0,0.3)] w-[170px] h-[170px] rounded-2xl flex justify-center items-center">
-        </div>
         <form action="/bicicletas/{{ $bicycle->id }}" method="POST" class="grid grid-cols-2 gap-10 mt-4">
             <div>
                 <div class="style-preview items-center">
@@ -24,7 +22,7 @@
                 </div>
                 <div class="style-preview">
                     <label>Modelo:</label>
-                    <input type="text" class="outline-none">
+                    <input type="text" class="outline-none" value="{{ $bicycle->model }}">
                 </div>
                 <div class="style-preview">
                     <label>Marca:</label>

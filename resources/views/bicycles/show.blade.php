@@ -14,7 +14,7 @@
                             d="m19.71 8.04l-2.34 2.33l-3.75-3.75l2.34-2.33c.39-.39 1.04-.39 1.41 0l2.34 2.34c.39.37.39 1.02 0 1.41M3 17.25L13.06 7.18l3.75 3.75L6.75 21H3zM16.62 5.04l-1.54 1.54l2.34 2.34l1.54-1.54zM15.36 11L13 8.64l-9 9.02V20h2.34z" />
                     </svg>
                 </a>
-                <button href="/componentes/{{$bicycle->id}}/edit"
+                <button
                     class="bg-black px-4 py-2 rounded-lg text-white flex gap-2.5 w-fit items-center transition-all duration-300 ease-in-out hover:bg-black/80">Eliminar
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m18 9l-.84 8.398c-.127 1.273-.19 1.909-.48 2.39a2.5 2.5 0 0 1-1.075.973C15.098 21 14.46 21 13.18 21h-2.36c-1.279 0-1.918 0-2.425-.24a2.5 2.5 0 0 1-1.076-.973c-.288-.48-.352-1.116-.48-2.389L6 9m7.5 6.5v-5m-3 5v-5m-6-4h4.615m0 0l.386-2.672c.112-.486.516-.828.98-.828h3.038c.464 0 .867.342.98.828l.386 2.672m-5.77 0h5.77m0 0H19.5"/></svg>
                 </button>
@@ -23,8 +23,6 @@
         <div class="w-full h-[0.5px] bg-preview"></div>
     </div>
     <div class="grid grid-rows-[170px_1fr] ">
-        <div class="shadow-[0px_4px_4px_rgba(0,0,0,0.3)] w-[170px] h-[170px] rounded-2xl flex justify-center items-center">
-        </div>
         <div class="grid grid-cols-2 gap-10 mt-4">
             <div>
                 <div class="style-preview items-center">
@@ -33,31 +31,31 @@
                 </div>
                 <div class="style-preview">
                     <label>SKU:</label>
-                    <input type="text" class="outline-none bg-white" value="" disabled>
+                    <input type="text" class="outline-none bg-white w-full" value="" disabled>
                 </div>
                 <div class="style-preview">
                     <label>Modelo:</label>
-                    <input type="text" class="outline-none bg-white" value="{{ $bicycle->model }}" disabled>
+                    <input type="text" class="outline-none bg-white w-full" value="{{ $bicycle->model }}" disabled>
                 </div>
                 <div class="style-preview">
                     <label>Marca:</label>
-                    <input type="text" class="outline-none bg-white" value="{{ $bicycle->brand }}" disabled>
+                    <input type="text" class="outline-none bg-white w-full" value="{{ $bicycle->brand }}" disabled>
                 </div>
                 <div class="style-preview">
                     <label>Tipo:</label>
-                    <input type="text" class="outline-none bg-white" value="{{ $bicycle->type }}" disabled>
+                    <input type="text" class="outline-none bg-white w-full" value="{{ $bicycle->type }}" disabled>
                 </div>
                 <div class="style-preview">
                     <label>Color:</label>
-                    <input type="text" class="outline-none bg-white" value="{{ $bicycle->color }}" disabled>
+                    <input type="text" class="outline-none bg-white w-full" value="{{ $bicycle->color }}" disabled>
                 </div>
                 <div class="style-preview">
                     <label>Ultima orden: </label>
-                    <input type="text" class="outline-none bg-white" disabled>
+                    <input type="text" class="outline-none bg-white w-full" disabled>
                 </div>
                 <div class="style-preview">
                     <label>Fecha: </label>
-                    <input type="text" class="outline-none bg-white" disabled>
+                    <input type="text" class="outline-none bg-white w-full" disabled>
                 </div>
             </div>
             <div class="flex flex-col">
@@ -66,28 +64,28 @@
                 </div>
                 <div class="style-preview">
                     <label>Nombre:</label>
-                    <input type="text" class="outline-none bg-white" value="{{ $bicycle->client->name }}" disabled>
+                    <input type="text" class="outline-none bg-white w-full" value="{{ $bicycle->client->name }}" disabled>
                 </div>
                 <div class="style-preview">
                     <label>Teléfono:</label>
-                    <input type="text" class="outline-none bg-white" value="{{ $bicycle->client->phone }}" disabled>
+                    <input type="text" class="outline-none bg-white w-full" value="{{ $bicycle->client->phone }}" disabled>
                 </div>
                 <div class="style-preview">
                     <label>Correo:</label>
-                    <input type="text" class="outline-none bg-white" value="{{ $bicycle->client->email }}" disabled>
+                    <input type="text" class="outline-none bg-white w-full" value="{{ $bicycle->client->email }}" disabled>
                 </div>
             </div>
         </div>
     </div>
 
-    <h1>bicicleta {{ $bicycle->model }}</h1>
+    {{-- <h1>bicicleta {{ $bicycle->model }}</h1>
     <p>{{ $bicycle->serial }}</p>
     <p>{{ $bicycle->type }}</p>
     <p>{{ $bicycle->model }}</p>
     <p>{{ $bicycle->brand }}</p>
     <p>{{ $bicycle->color }}</p>
     <p>{{ $bicycle->client_id }}</p>
-    <p>{{ $bicycle->client->name }}</p>
+    <p>{{ $bicycle->client->name }}</p> --}}
 
 
     <a href="/bicicletas/{{ $bicycle->id }}/edit">editar bicicleta</a>

@@ -21,18 +21,14 @@
         </form>
     </div>
     <div class="w-full h-[0.5px] bg-preview"></div>
-    <form class="grid grid-cols-2 gap-10">
-        <div
-            class="shadow-[0px_4px_4px_rgba(0,0,0,0.3)] w-[292px] h-[292px] rounded-2xl flex justify-center items-center">
-            <Icon name="bx:user" class="w-[100px] h-[100px]" />
-        </div>
+    <form class="grid gap-10">
         <div class="flex flex-col">
             <div class="style-preview items-center">
                 <label>Repuesto</label>
                 <Icon name="ep:arrow-down" class="w-4 h-4" style="color: black" />
             </div>
             <div class="style-preview">
-                <label>ID:</label>
+                <label>Serial:</label>
                 <input type="text" disabled value="{{$component->serial}}">
             </div>
             <div class="style-preview">

@@ -22,7 +22,7 @@
     <table>
         <thead>
             <tr>
-                <th>No ID</th>
+                <th>Serial</th>
                 <th>Descripcion</th>
                 <th>Marca</th>
                 <th>Tipo</th>

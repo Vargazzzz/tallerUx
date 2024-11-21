@@ -32,15 +32,6 @@
                             <input type="password" class="outline-none" placeholder="Contraseña">
                         </div>
                     </div>
-                    <div class="flex justify-between">
-                        <div>
-                            <input type="checkbox" class="w-4 h-4 checked:bg-gray-200">
-                            <span class="ml-2.5 ">Recuerdame</span>
-                        </div>
-                        <div>
-                            <a href="#" class="hover:underline">¿Olvidaste tu contraseña?</a>
-                        </div>
-                    </div>
                     <button
                         class="self-center w-[120px] py-1 bg-black text-white font-bold rounded-md ease hover:bg-black/85">
                         Entrar

@@ -72,8 +72,11 @@ class OrderController extends Controller
         return redirect('/ordenes');
     }
     public function show(Order $order){
+
+        $order=Order::find($order->id);
         $components= Component::all();
         return view('orders.show',compact('order','components'));
     }
+    
     
 }
