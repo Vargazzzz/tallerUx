@@ -24,7 +24,7 @@ class ComponentsOrders extends Model
     }
 
     public function component(){
-        return $this->belongTo(Component::class,'component_id');
+        return $this->belongsTo(Component::class,'component_id');
     }
 }
 

@@ -21,18 +21,22 @@ class Order extends Model
     ];
 
     public function bicycle(){
-        return $this->belongsto(Bicycle::class);
+        return $this->belongsTo(Bicycle::class);
     }
 
     public function client(){
-        return $this->belongsto(Client::class);
+        return $this->belongsTo(Client::class);
     }
 
     public function mechanic(){
-        return $this->belongsto(Mechanic::class);
+        return $this->belongsTo(Mechanic::class);
     }
 
-    public function component(){
-        return $this->hasMany(Component::class,'components_orders')->withPivot('quantity', 'total')->withTimestamps();
+    public function components(){
+        return $this->belongsToMany(Component::class,'components_orders')->withPivot('quantity', 'total')->withTimestamps();
+    }
+
+    public function getTotalCostAttribute(){
+        return $this->components->sum('pivot.total');
     }
 }

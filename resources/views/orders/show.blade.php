@@ -8,78 +8,37 @@
 </head>
 <body>
 
-    <a href="/ordenes">volver a ordenes</a>
+    <h1>Orden #{{ $order->n_order }}</h1>
+    <p>Cliente: {{ $order->client->name }}</p>
+    <p>Bicicleta: {{ $order->bicycle->model }}</p>
+    <p>Mecánico: {{ $order->mechanic->name }}</p>
+    <p>Estado: {{ $order->status }}</p>
 
-    <h1>orden {{$order->n_order}}</h1>
+    <h2>Componentes</h2>
+    <ul>
+        @foreach($order->components as $component)
+            <li>{{ $component->description }} ({{ $component->pivot->quantity }} x ${{ $component->price }}) - Total: ${{ $component->pivot->total }}</li>
+        @endforeach
+    </ul>
+    <p><strong>Costo Total: ${{ $totalCost }}</strong></p>
 
-    <a href="/ordenes/{{$order->id}}/edit">editar componente</a>
-
-
-    <form method="POST" action= "/ordenes/{{$order->id}}">
-        {{--@csrf
-        @method('PUT')
+    <h2>Agregar Componente</h2>
+    <form action="{{ route('orders.addComponent', $order->id) }}" method="POST">
+        @csrf
         <div>
-            <label for="components">Componentes:</label>
-            <select name="components[]" multiple>
+            <label for="component_id">Componente:</label>
+            <select name="component_id" id="component_id">
                 @foreach($components as $component)
-                    <option value="{{$component->id}}">{{$component->serial}}{{$component->description}}</option>
-                @endforeach            
+                    <option value="{{ $component->id }}">{{ $component->description }}</option>
+                @endforeach
             </select>
         </div>
-        <button type="submit">guardar componentes</button>--}}
+        <div>
+            <label for="quantity">Cantidad:</label>
+            <input type="number" name="quantity" id="quantity" min="1" required>
+        </div>
+        <button type="submit">Agregar</button>
     </form>
-    
-    <div>
-        <input type="text" id="idQuantity" placeholder="cantidad">
-    </div>
 
-    <div>
-        <input type="text" id="idComponent" placeholder="ingrese un componente">
-        <button onclick="searchProduct();">agregar</button>
-    </div>
-
-
-    <form action="/ordenes/{{$order->id}}" method="POST">
-        
-        @csrf
-        @method('DELETE')
-        
-        <button type="submit">
-            eliminar orden
-        </button>
-    </form>
-    <script>
-
-        var subtotalGeneral = 0;
-        var total = 0;
-        function searchProduct(){
-            var idComponent = document.getElementById("idComponent").value;
-            var quantity = document.getElementById("idQuantity").value;
-            
-            $.ajax({
-                url:'',
-                method:'post',
-                data:{
-                    idComponent : idComponent
-                }
-                succes: function (data){
-                    if(data.error){
-                        alert(dat.error)
-                    }
-                    else{
-                        var component = document.getElementById("component");
-                        var fila = document.createElement("tr");
-                        let subtotal = data.price * quantity;
-                        subtotalGeneral += subtotal;
-                        total= subtotalGeneral;
-                        fila.innerHTML = "<td>" + data.id + "</td><td>" + data.description + "</td><td>" + data.price + "</td><td>" + quantity + "</td><td>" + subtotal + "</td>";
-                        component.appenChild(fila);
-                    }
-                }
-
-            })
-        }
-
-    </script>
 </body>
 </html>

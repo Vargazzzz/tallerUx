@@ -71,11 +71,26 @@ class OrderController extends Controller
         
         return redirect('/ordenes');
     }
-    public function show(Order $order){
 
-        $order=Order::find($order->id);
-        $components= Component::all();
-        return view('orders.show',compact('order','components'));
+    public function addComponent(Request $request, $orderId)
+    {
+        $order = Order::findOrFail($orderId);
+        $component = Component::findOrFail($request->component_id);
+        $quantity = $request->quantity;
+        $total = $quantity * $component->price;
+
+        $order->components()->attach($component, ['quantity' => $quantity, 'total' => $total]);
+
+        return redirect()->route('orders.show', $orderId)->with('success', 'Componente agregado a la orden exitosamente.');
+    }
+
+    public function show($id)
+    {
+        $order = Order::with('components')->findOrFail($id);
+        $totalCost = $order->total_cost;
+        $components = Component::all();
+
+        return view('orders.show', compact('order', 'totalCost', 'components'));
     }
     
     

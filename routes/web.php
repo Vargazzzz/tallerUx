@@ -90,7 +90,15 @@ Route::get('/ordenes/crear',[OrderController::class,'create']);
 
 Route::post('/ordenes', [OrderController::class,'store']);
 
-Route::get('/ordenes/{order}',[OrderController::class,'show']);
+//Route::get('/ordenes/{order}',[OrderController::class,'show']);
+
+//Route::post('/ordenes/{order}/componentes',[OrderController::class, 'addComponent']);
+
+// Ruta para mostrar la orden
+Route::get('ordenes/{order}', [OrderController::class, 'show'])->name('orders.show');
+
+// Ruta para agregar componentes a la orden
+Route::post('ordenes/{order}/componentes', [OrderController::class, 'addComponent'])->name('orders.addComponent');
 
 Route::put('componentes/{component}',[ComponentController::class,'update']);
 
