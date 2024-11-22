@@ -1,4 +1,5 @@
 @extends('layouts.template')
+@section('title','Editar bicicleta')
 @section('content')
     <a href="/bicicletas" class="btn ease">Volver a bicicletas</a>
     <div class="flex flex-col gap-5">
@@ -63,8 +64,9 @@
                         <input type="text" class="outline-none">
                     </div>
                 </div>
-                <button type="button" class="btn ease self-end">
-                    Guardar
+                <button type="button" class="btn self-end">
+                    Guardar 
+                    <img src="{{asset('/images/save.svg')}}">
                 </button>
             </div>
         </form>

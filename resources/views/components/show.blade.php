@@ -1,6 +1,6 @@
 @extends('layouts.template')
 @section('content')    
-<a href="/componentes" class="btn ease">Volver a bicicletas</a>
+<a href="/componentes" class="btn ease">Volver a componentes</a>
 <div class="flex flex-col gap-5">
     <div class="flex justify-between w-full ">
         <div class="flex items-center gap-2.5">
@@ -9,14 +9,11 @@
         <form action="/componentes/{{$component->id}}" method="POST" class="flex gap-5">
             <a href="/componentes/{{$component->id}}/edit"
                 class="bg-black px-4 py-2 rounded-lg text-white flex gap-2.5 w-fit items-center transition-all duration-300 ease-in-out hover:bg-black/80">Editar
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path fill="currentColor"
-                        d="m19.71 8.04l-2.34 2.33l-3.75-3.75l2.34-2.33c.39-.39 1.04-.39 1.41 0l2.34 2.34c.39.37.39 1.02 0 1.41M3 17.25L13.06 7.18l3.75 3.75L6.75 21H3zM16.62 5.04l-1.54 1.54l2.34 2.34l1.54-1.54zM15.36 11L13 8.64l-9 9.02V20h2.34z" />
-                </svg>
+                <img src="{{ asset('/images/pencil-light.svg') }}">
             </a>
             <button href="/componentes/{{$component->id}}/edit"
                 class="bg-black px-4 py-2 rounded-lg text-white flex gap-2.5 w-fit items-center transition-all duration-300 ease-in-out hover:bg-black/80">Eliminar
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m18 9l-.84 8.398c-.127 1.273-.19 1.909-.48 2.39a2.5 2.5 0 0 1-1.075.973C15.098 21 14.46 21 13.18 21h-2.36c-1.279 0-1.918 0-2.425-.24a2.5 2.5 0 0 1-1.076-.973c-.288-.48-.352-1.116-.48-2.389L6 9m7.5 6.5v-5m-3 5v-5m-6-4h4.615m0 0l.386-2.672c.112-.486.516-.828.98-.828h3.038c.464 0 .867.342.98.828l.386 2.672m-5.77 0h5.77m0 0H19.5"/></svg>
+                <img src="{{ asset('/images/trash-light.svg') }}">
             </button>
         </form>
     </div>

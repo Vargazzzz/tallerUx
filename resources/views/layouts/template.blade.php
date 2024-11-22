@@ -17,44 +17,40 @@
                 <!-- navbar -->
                 <nav class="w-[90%]">
                     <ul class="navigation-menu">
-                        <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
                                 <path fill="currentColor" fill-rule="evenodd"
                                     d="m35.745 12.17l-4.925 1.48l3.28 8.578a8 8 0 1 1-1.868.715l-1.648-4.31l-5.682 11.802A1 1 0 0 1 24 31h-4.062A8.001 8.001 0 0 1 4 30a8 8 0 0 1 15.938-1h2.5l-4.88-13.664A1 1 0 0 1 17.5 15H16a1 1 0 1 1 0-2h4.5a1 1 0 1 1 0 2h-.938l1.842 5.157l8.127-4.277l-.965-2.523a1 1 0 0 1 .647-1.315l5.957-1.787zm-13.662 9.89l1.972 5.52l4.23-8.784zm12.983 8.297l-2.113-5.527a6 6 0 1 0 1.868-.715l2.113 5.528a1 1 0 0 1-1.868.714M17.917 29H12a1 1 0 1 0 0 2h5.917A6.002 6.002 0 0 1 6 30a6 6 0 0 1 11.917-1"
                                     clip-rule="evenodd" />
-                            </svg><a href="/bicicletas">Bicicletas</a><svg xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24">
-                                <path fill="black"
-                                    d="M12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22" />
-                            </svg></li>
-                        <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            </svg>
+                            <a href="/bicicletas">Bicicletas</a>
+                            <img src="{{asset('images/circle.svg')}}">
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                 <path fill="currentColor"
                                     d="M12 2a5 5 0 1 0 5 5a5 5 0 0 0-5-5m0 8a3 3 0 1 1 3-3a3 3 0 0 1-3 3m9 11v-1a7 7 0 0 0-7-7h-4a7 7 0 0 0-7 7v1h2v-1a5 5 0 0 1 5-5h4a5 5 0 0 1 5 5v1z" />
-                            </svg><a href="/clientes">Clientes</a><svg xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24">
-                                <path fill="black"
-                                    d="M12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22" />
-                            </svg></li>
-                        <li><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 16 16">
+                            </svg>
+                            <a href="/clientes">Clientes</a>
+                            <img src="{{asset('images/circle.svg')}}">
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 16 16">
                                 <path fill="none" stroke="currentColor" stroke-linejoin="round"
                                     d="M5.5 2.5h-2v12h9v-12h-2m-5 6l2 2L11 7M5.5 1.5h5l-.625 2h-3.75z" />
-                            </svg><a href="/ordenes">Ordenes</a><svg xmlns="http://www.w3.org/2000/svg"
+                            </svg>
+                            <a href="/ordenes">Ordenes</a>
+                            <img src="{{asset('images/circle.svg')}}">
+                        </li>
+                        <li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm4-4h8l4 4H4zm0 8h4"/></svg>
+                            <a href="/componentes">Repuestos</a>
+                            <svg xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24">
                                 <path fill="black"
                                     d="M12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22" />
-                            </svg></li>
-                        <li><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
-                                <g fill="none" stroke="currentColor">
-                                    <path
-                                        d="M4.5 8.711c0-.601 0-.902.086-1.185s.252-.534.586-1.034l.14-.21c.582-.873.872-1.309 1.315-1.545c.442-.237.966-.237 2.014-.237h6.718c1.048 0 1.572 0 2.014.237c.442.236.733.672 1.314 1.544l.141.211c.334.5.5.75.586 1.034c.086.283.086.584.086 1.185V15.5c0 1.886 0 2.828-.586 3.414s-1.528.586-3.414.586h-7c-1.886 0-2.828 0-3.414-.586S4.5 17.386 4.5 15.5z" />
-                                    <path stroke-linecap="round" d="M4.5 9.5h15" />
-                                    <path
-                                        d="M9.5 9.65a.15.15 0 0 1 .15-.15h4.7a.15.15 0 0 1 .15.15v4.055a.45.45 0 0 1-.681.386l-1.69-1.014a.25.25 0 0 0-.258 0l-1.69 1.014a.45.45 0 0 1-.681-.386z" />
-                                </g>
-                            </svg><a href="/componentes">Repuestos</a><svg xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24">
-                                <path fill="black"
-                                    d="M12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22" />
-                            </svg></li>
+                            </svg>
+                        </li>
                         <li><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
                                 <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="2">
@@ -63,7 +59,7 @@
                                     <path
                                         d="M10 15H6a4 4 0 0 0-4 4v2m19.7-4.6l-.9-.3m-5.6-2.2l-.9-.3m2.3 5.1l.3-.9m2.2-5.6l.3-.9m.2 7.4l-.4-1m-2.4-5.4l-.4-1m-2.1 5.3l1-.4m5.4-2.4l1-.4" />
                                 </g>
-                            </svg><a href="#">Usuario</a><svg xmlns="http://www.w3.org/2000/svg"
+                            </svg><a href="/kuftyf">Usuario</a><svg xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24">
                                 <path fill="black"
                                     d="M12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22" />
@@ -75,7 +71,7 @@
                                     <path fill="currentColor"
                                         d="M12 3a1 1 0 0 1 .117 1.993L12 5H7a1 1 0 0 0-.993.883L6 6v12a1 1 0 0 0 .883.993L7 19h4.5a1 1 0 0 1 .117 1.993L11.5 21H7a3 3 0 0 1-2.995-2.824L4 18V6a3 3 0 0 1 2.824-2.995L7 3zm5.707 5.464l2.828 2.829a1 1 0 0 1 0 1.414l-2.828 2.829a1 1 0 1 1-1.414-1.415L17.414 13H12a1 1 0 1 1 0-2h5.414l-1.121-1.121a1 1 0 0 1 1.414-1.415" />
                                 </g>
-                            </svg><a href="#">Salir</a><svg xmlns="http://www.w3.org/2000/svg"
+                            </svg><a href="/login">Salir</a><svg xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24">
                                 <path fill="black"
                                     d="M12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22" />
@@ -98,7 +94,7 @@
 
 </html>
 <!-- para laravel -->
-{{-- <script>
+<script>
     document.addEventListener('DOMContentLoaded', function() {
         const links = document.querySelectorAll('.navigation-menu li a');
 
@@ -109,4 +105,4 @@
             }
         });
     });
-</script> --}}
+</script>

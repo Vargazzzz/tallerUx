@@ -1,11 +1,19 @@
 @extends('layouts.template')
+@section('title', 'Editar cliente')
 @section('content')
     <a href="/clientes" class="btn ease">Volver a Clientes</a>
     <div class="flex flex-col gap-5">
-        <div class="flex justify-between w-full ">
-            <div class="flex items-center gap-2.5">
-                <h1 class="text-[24px] font-bold">Vista previa</h1>
+        <div class="flex justify-between w-full">
+            <div class="flex justify-between w-full ">
+                <div class="flex items-center gap-2.5">
+                    <h1 class="text-[24px] font-bold">Vista previa</h1>
+                </div>
             </div>
+            <form action="/clientes/{{ $client->id }}">
+                <button class="btn">Eliminar
+                    <img src="{{ asset('/images/trash-light.svg') }}">
+                </button>
+            </form>
         </div>
         <div class="w-full h-[0.5px] bg-preview"></div>
     </div>
@@ -37,7 +45,7 @@
         </div>
         <!-- col 2 -->
         <div>
-            <div class="mt-4">
+            <div>
                 <div class="style-preview items-center">
                     <label>Bicicleta</label>
                     <Icon name="ep:arrow-down" class="w-4 h-4" style="color: black" />
@@ -84,14 +92,12 @@
             <p>ajsdfhbjkhdsf</p>
         </div>
         <div class="flex justify-end gap-5">
-            <a
-               href="#" class="btn ease">Servicios
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-                    <path fill="currentColor" fill-rule="evenodd" d="M11 11V4h2v7h7v2h-7v7h-2v-7H4v-2z" />
-                </svg>
-            </a>
-            <button type="button" class="btn ease self-end">
+            {{-- <a href="#" class="btn">Servicios
+                <img src="{{ asset('/images/add.svg') }}">
+            </a> --}}
+            <button type="button" class="btn">
                 Guardar
+                <img src="{{ asset('/images/save.svg') }}">
             </button>
         </div>
     </div>

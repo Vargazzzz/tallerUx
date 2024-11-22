@@ -17,13 +17,7 @@
         }
     }
 
-    .btn{
-        @apply w-fit bg-black text-white flex justify-center items-center gap-2 px-4 py-2 rounded-md;
 
-        &:hover {
-            @apply bg-black/85;
-        }
-    }
 
     .input {
         @apply flex justify-start items-center gap-3 p-2 border-2 border-gray-bike-200 rounded-md;
@@ -51,6 +45,10 @@
 
     .content{
         @apply mx-auto w-4/5 flex flex-col gap-10 py-10;
+
+        .formularios{
+            @apply m-auto;
+        }
     }
     .title{
         @apply text-5xl font-semibold italic
@@ -63,14 +61,37 @@
         @apply px-4 py-2 text-center border-b border-gray-bike-400;
     }
 
+    .accions{
+        @apply flex gap-2 justify-center;
+    }
     .bg-preview{
         background-image: radial-gradient(circle at center, #000, #fff);
     }
 
     .style-preview{
-        @apply w-full border-b border-black py-3 flex gap-2.5;
+        @apply w-full border-b border-b-black py-3 flex gap-2.5;
         input{
             background-color: #fff;
+        }
+    }
+
+    .form{
+        @apply w-fit border-2 border-black rounded-lg p-10 flex flex-col gap-5;
+        div{
+            @apply flex gap-5;
+            input {
+                @apply w-[450px] py-2.5 border-b border-b-black outline-none;
+
+            }
+        }
+    }
+
+    .btn{
+        @apply w-fit bg-black text-white flex justify-center items-center gap-2 px-4 py-2 rounded-md ease;
+
+
+        &:hover {
+            @apply bg-black/85;
         }
     }
 }

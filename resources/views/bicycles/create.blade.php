@@ -1,61 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>formulario nueva bicicleta</h1>
+@extends('layouts.template')
+@section('title', 'Crear bicicleta')
+@section('content')
+    <div class="formularios flex flex-col gap-5 justify-center items-center">
+        <h1 class="title text-center">Formulario nueva bicicleta</h1>
+        <form action="/bicicletas" class="form" method="POST">
+            @csrf
+            <div>
+                <input type="text" name="serial" placeholder="Serial:" value="{{ old('serial') }}">
 
-    <form action="/bicicletas" method="POST">
+                @error('serial')
+                    <p>{{ $message }}</p>
+                @enderror
+            </div>
+            <div>
+                <input type="text" name="type" placeholder="Tipo:" value="{{ old('type') }}">
 
-        @csrf
+                @error('type')
+                    <p>{{ $message }}</p>
+                @enderror
+            </div>
+            <div>
+                <input type="text" name="model" placeholder="Modelo:" value="{{ old('model') }}">
 
-        <label >Serial</label>
-        <input type="text" name="serial" value="{{old('serial')}}">
+                @error('model')
+                    <p>{{ $message }}</p>
+                @enderror
+            </div>
+            <div>
+                <input type="text" name="brand" placeholder="Marca:" value="{{ old('brand') }}">
 
-        @error('serial')
-            <p>{{$message}}</p>
-        @enderror
+                @error('brand')
+                    <p>{{ $message }}</p>
+                @enderror
+            </div>
+            <div>
+                <input type="text" name="color" placeholder="Color:" value="{{ old('color') }}">
 
-        <label >tipo</label>
-        <input type="text" name="type" value="{{old('type')}}">
+                @error('color')
+                    <p>{{ $message }}</p>
+                @enderror
+            </div>
+            <div>
+                <input type="number" name="ci" placeholder="Cedula del cliente:" value="{{ old('ci') }}">
 
-        @error('type')
-            <p>{{$message}}</p>
-        @enderror
+                @error('ci')
+                    <p>{{ $message }}</p>
+                @enderror
+            </div>
+            <div>
+                <a href="/bicicletas" class="btn w-full">Volver</a>
+                <button type="submit" class="btn w-full">Crear bicicleta</button>
+            </div>
+        </form>
 
-        <label >modelo</label>
-        <input type="text" name="model" value="{{old('model')}}">
-
-        @error('model')
-            <p>{{$message}}</p>
-        @enderror
-
-        <label >marca</label>
-        <input type="text" name="brand" value="{{old('brand')}}">
-
-        @error('brand')
-            <p>{{$message}}</p>
-        @enderror
-
-        <label >color</label >
-        <input type="text" name="color" value="{{old('color')}}">
-    
-        @error('color')
-            <p>{{$message}}</p>
-        @enderror
-
-        <label >ci cliente</label>
-        <input type="number" name="ci" value="{{old('ci')}}">
-
-        @error('ci')
-            <p>{{$message}}</p>
-        @enderror
-
-        <button type="submit">crear bicicleta</button>
-    </form>
-</body>
-</html>
+    </div>
+@endsection

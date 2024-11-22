@@ -12,7 +12,7 @@
 <body>
     <div class="container-HL bg-login_register font-[Lato]">
         <div class="container-HL bg-w flex justify-center items-center">
-            <div class="flex flex-col gap-5 w-[450px] h-[550px] bg-white rounded-md items-center justify-center p-10">
+            <div class="flex flex-col gap-5 w-[450px] bg-white rounded-md items-center justify-center p-10">
                 <div class="flex justify-center items-center h-[50px]">
                     <p class="text-black">Bienvenido a </p>
                     <img src="{{asset('/css/logos/logo-blanco.png')}}">

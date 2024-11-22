@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Crear Cliente</title>
-</head>
-<body>
+@extends('layouts.template')
+@section('title', 'Crear cliente')
+@section('content')
+    <div class="formularios flex flex-col gap-10 justify-center items-center">
 
-    <h1>formulario nuevo cliente</h1>
-
-    {{--@if ($errors->any())
+        <h1 class="title text-center">Formulario nuevo cliente</h1>
+        {{-- @if ($errors->any())
         <div>
             <h2>errores:</h2>
             <ul>
@@ -21,48 +15,46 @@
                 @endforeach
             </ul>
         </div>
-    @endif--}}
+    @endif --}}
+        <form action="/clientes" class="form" method="POST">
+            @csrf
+            <div class="relative">
+                <input type="number" class="form-input" name="ci" placeholder="Cedula:">
 
-    <form action="/clientes" method="POST">
+                @error('ci')
+                    <p>{{ $message }}</p>
+                @enderror
+            </div>
+            <div class="relative">
+                <input type="text" name="name" placeholder="Nombre y Apellido:">
+                @error('name')
+                    <p>{{ $message }}</p>
+                @enderror
+            </div>
+            <div class="relative">
+                <input type="text" name="phone" placeholder="Telefono:">
+                @error('phone')
+                    <p>{{ $message }}</p>
+                @enderror
+            </div>
+            <div class="relative">
+                <input type="text" name="email" placeholder="Correo:">
 
-        @csrf
+                @error('email')
+                    <p>{{ $message }}</p>
+                @enderror
+            </div>
+            <div class="relative">
+                <input type="text" name="location" placeholder="Locacion:">
 
-        <label >cedula</label>
-        <input type="number" name="ci" value="{{old('ci')}}">
-
-        @error('ci')
-            <p>{{$message}}</p>
-        @enderror
-
-        <label >nombre y apellido</label>
-        <input type="text" name="name" value="{{old('name')}}">
-
-        @error('name')
-            <p>{{$message}}</p>
-        @enderror
-
-        <label >telefono</label>
-        <input type="text" name="phone" value="{{old('phone')}}">
-
-        @error('phone')
-            <p>{{$message}}</p>
-        @enderror
-
-        <label >correo</label>
-        <input type="text" name="email" value="{{old('email')}}">
-
-        @error('email')
-            <p>{{$message}}</p>
-        @enderror
-
-        <label >locacion</label >
-        <input type="text" name="location" value="{{old('location')}}">
-    
-        @error('location')
-            <p>{{$message}}</p>
-        @enderror
-
-        <button type="submit">crear cliente</button>
-    </form>
-</body>
-</html>
+                @error('location')
+                    <p>{{ $message }}</p>
+                @enderror
+            </div>
+            <div>
+                <a href="/clientes" class="btn w-full">Volver</a>
+                <button type="submit" class="btn w-full">Crear cliente</button>
+            </div>
+        </form>
+    </div>
+@endsection
