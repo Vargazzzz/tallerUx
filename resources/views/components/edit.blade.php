@@ -23,23 +23,23 @@
             </div>
             <div class="style-preview">
                 <label>Serial:</label>
-                <input type="text" disabled value="{{$component->serial}}">
+                <input type="text" value="{{$component->serial}}">
             </div>
             <div class="style-preview">
                 <label>Descripcion:</label>
-                <input type="text" disabled value="{{$component->description}}">
+                <input type="text" value="{{$component->description}}">
             </div>
             <div class="style-preview">
                 <label>Marca:</label>
-                <input type="text" disabled value="{{$component->brand}}">
+                <input type="text" value="{{$component->brand}}">
             </div>
             <div class="style-preview">
                 <label>Tipo:</label>
-                <input type="text" disabled value="{{$component->type}}">
+                <input type="text" value="{{$component->type}}">
             </div>
             <div class="style-preview">
                 <label>Precio:</label>
-                <input type="text" disabled value="{{$component->price}}">
+                <input type="text" value="{{$component->price}}">
             </div>
             <button type="button" class="btn mt-5 self-end">
                 Guardar 
