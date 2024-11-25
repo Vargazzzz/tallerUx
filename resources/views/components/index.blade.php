@@ -1,4 +1,5 @@
 @extends('layouts.template')
+@section('title','Repuestos')
 @section('content')
     <h1 class="title">Componentes</h1>
     <div class="flex justify-between">
@@ -6,7 +7,7 @@
             <img src="{{asset('/images/search.svg')}}">
             <input type="text" placeholder="Buscar" class="outline-none">
         </div>
-        <a href="/componentes/crear" class="btn ease">Añadir
+        <a href="/componentes/crear" class="btn">Añadir
             <img src="{{ asset('/images/add.svg') }}">
         </a>
     </div>

@@ -70,7 +70,8 @@
 
     .style-preview{
         @apply w-full border-b border-b-black py-3 flex gap-2.5;
-        input{
+        input{ 
+            @apply w-fit;
             background-color: #fff;
         }
     }

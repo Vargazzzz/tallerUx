@@ -1,28 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-    <h1>mostrar mecanicos</h1>
-
-    <a href="/mecanico/crear">Nuevo mecanico</a>
+@extends('layouts.template')
+@section('title', 'Mecanicos')
+@section('content')
+    <h1 class="title">Mecanicos</h1>
+    <div class="flex justify-between">
+        <div class="w-1/2 input">
+            <img src="{{ asset('/images/search.svg') }}">
+            <input type="text" placeholder="Buscar" class="outline-none">
+        </div>
+        <a href="/mecanico/crear" class="btn">Añadir
+            <img src="{{ asset('/images/add.svg') }}">
+        </a>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Cedula</th>
+                <th>Nombre</th>
+                <th>Telefono</th>
+                <th>Correo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($mechanics as $mechanic)
+                <tr>
+                    <td>{{ $mechanic->ci }}</td>
+                    <td>{{ $mechanic->name }}</td>
+                    <td>{{ $mechanic->phone }}</td>
+                    <td>{{ $mechanic->email }}</td>
+                    <td class="accions">
+                        <a href="/mecanico/{{ $mechanic->id }}">
+                            <img src="{{ asset('/images/view.svg') }}">
+                        </a>
+                        <a href="/mecanico/{{ $mechanic->id }}/edit">
+                            <img src="{{ asset('/images/pencil.svg') }}">
+                        </a>
+                </tr>
+            @endforeach
+    </table>
+    {{-- Nuevo mecanico</a>
 
     <ul>
         @foreach ($mechanics as $mechanic)
             <li>
-                <a href="/mecanico/{{$mechanic->id}}">
-                    {{$mechanic->name}}
+                <a href="/mecanico/{{ $mechanic->id }}">
+                    {{ $mechanic->name }}
                 </a>
             </li>
         @endforeach
     </ul>
 
-    {{$mechanics->links()}}
-    
-</body>
-</html>
+    {{ $mechanics->links() }} --}}
+
+@endsection

@@ -1,6 +1,6 @@
 @extends('layouts.template')
 @section('content')    
-<a href="/componentes" class="btn ease">Volver a componentes</a>
+<a href="/componentes" class="btn">Volver a componentes</a>
 <div class="flex flex-col gap-5">
     <div class="flex justify-between w-full ">
         <div class="flex items-center gap-2.5">
@@ -8,11 +8,11 @@
         </div>
         <form action="/componentes/{{$component->id}}" method="POST" class="flex gap-5">
             <a href="/componentes/{{$component->id}}/edit"
-                class="bg-black px-4 py-2 rounded-lg text-white flex gap-2.5 w-fit items-center transition-all duration-300 ease-in-out hover:bg-black/80">Editar
+                class="btn">Editar
                 <img src="{{ asset('/images/pencil-light.svg') }}">
             </a>
             <button href="/componentes/{{$component->id}}/edit"
-                class="bg-black px-4 py-2 rounded-lg text-white flex gap-2.5 w-fit items-center transition-all duration-300 ease-in-out hover:bg-black/80">Eliminar
+                class="btn">Eliminar
                 <img src="{{ asset('/images/trash-light.svg') }}">
             </button>
         </form>

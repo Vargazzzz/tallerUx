@@ -1,16 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Crear Cliente</title>
-</head>
-<body>
+@extends('layouts.template')
+@section('title', 'Crear mecanico')
+@section('content')
+    <div class="formularios flex flex-col gap-10 justify-center items-center">
+        <h1 class="title text-center">Formulario nuevo mecanico</h1>
+        <form action="/mecanico" class="form w-[450px]" method="POST">
+            @csrf
+            <div>
+                <input type="number" name="ci" placeholder="Cedula:" value="{{ old('ci') }}">
 
-    <h1>formulario nuevo mecanico</h1>
+                @error('ci')
+                    <p>{{ $message }}</p>
+                @enderror
+            </div>
+            <div>
+                <input type="text" name="name" placeholder="Nombre y Apellido:" value="{{ old('name') }}">
 
-    {{--@if ($errors->any())
+                @error('name')
+                    <p>{{ $message }}</p>
+                @enderror
+            </div>
+            <div>
+                <input type="text" name="phone" placeholder="Telefono:" value="{{ old('phone') }}">
+
+                @error('phone')
+                    <p>{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div>
+
+                <input type="text" name="email" placeholder="Correo:" value="{{ old('email') }}">
+
+                @error('email')
+                    <p>{{ $message }}</p>
+                @enderror
+            </div>
+            <div>
+                <a href="/mecanico" class="btn w-full">Volver</a>
+                <button type="submit" class="btn w-full">Crear mecanico</button>
+            </div>
+        </form>
+    </div>
+@endsection
+
+
+{{-- @if ($errors->any())
         <div>
             <h2>errores:</h2>
             <ul>
@@ -21,41 +55,4 @@
                 @endforeach
             </ul>
         </div>
-    @endif--}}
-
-    <form action="/mecanico" method="POST">
-
-        @csrf
-
-        <label >cedula</label>
-        <input type="number" name="ci" value="{{old('ci')}}">
-
-        @error('ci')
-            <p>{{$message}}</p>
-        @enderror
-
-        <label >nombre y apellido</label>
-        <input type="text" name="name" value="{{old('name')}}">
-
-        @error('name')
-            <p>{{$message}}</p>
-        @enderror
-
-        <label >telefono</label>
-        <input type="text" name="phone" value="{{old('phone')}}">
-
-        @error('phone')
-            <p>{{$message}}</p>
-        @enderror
-
-        <label >correo</label>
-        <input type="text" name="email" value="{{old('email')}}">
-
-        @error('email')
-            <p>{{$message}}</p>
-        @enderror
-
-        <button type="submit">crear mecanico</button>
-    </form>
-</body>
-</html>
+    @endif --}}
