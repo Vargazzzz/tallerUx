@@ -66,6 +66,8 @@
                 <h1 class="text-[24px] font-bold">Vista previa</h1>
             </div>
             <form class="flex gap-5" action="/ordenes/{{ $order->id }}" method="POST">
+                @csrf
+                @method('DELETE')
                 {{-- <a href="/ordenes/{{ $order->id }}/edit" class="btn">Editar
                     <img src="{{ asset('/images/pencil-light.svg') }}"></a> --}}
                 <button type="submit" class="btn">
@@ -122,6 +124,11 @@
                     @foreach ($order->components as $component)
                         <li class="list-disc">{{ $component->description }} ({{ $component->pivot->quantity }} x ${{ $component->price }})
                             - Total: ${{ $component->pivot->total }}</li>
+                            <form action ="{{route ('orders.removeComponent', ['order'=> $order->id, 'component'=>$component->id])}}" method= "POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit">eliminar componente de la orden</button>
+                            </form>
                     @endforeach
                 </ul>
                 <p><strong>Costo Total: ${{ $totalCost }}</strong></p>
