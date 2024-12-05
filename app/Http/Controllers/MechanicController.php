@@ -7,9 +7,16 @@ use Illuminate\Http\Request;
 
 class MechanicController extends Controller
 {
-    public function index(){
-        $mechanics = Mechanic::orderBy('id','desc')
-                    ->paginate(5);
+    public function index(Request $request){
+
+        $query= Mechanic::orderBy('id','desc');
+
+        if ($request->has('search')){
+            $query->where ('ci', 'like', '%'. $request->input('search').'%');
+        }
+
+        $mechanics = $query->get();
+
         return view('mechanics.index', compact('mechanics'));
     }
     

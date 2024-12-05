@@ -18,6 +18,11 @@
     <ul>
         @foreach($order->components as $component)
             <li>{{ $component->description }} ({{ $component->pivot->quantity }} x ${{ $component->price }}) - Total: ${{ $component->pivot->total }}</li>
+            <form action ="{{route ('orders.removeComponent', ['order'=> $order->id, 'component'=>$component->id])}}" method= "POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit">eliminar</button>
+            </form>
         @endforeach
     </ul>
     <p><strong>Costo Total: ${{ $totalCost }}</strong></p>
@@ -40,5 +45,14 @@
         <button type="submit">Agregar</button>
     </form>
 
+    <form action="/ordenes/{{$order->id}}" method="POST">
+        
+        @csrf
+        @method('DELETE')
+        
+        <button type="submit">
+            eliminar orden
+        </button>
+    </form>
 </body>
 </html>

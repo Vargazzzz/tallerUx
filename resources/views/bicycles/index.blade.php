@@ -4,8 +4,12 @@
     <h1 class="title">Bicicletas</h1>
     <div class="flex justify-between">
         <div class="w-1/2 input">
-            <img src="{{asset('/images/search.svg')}}">
-            <input type="text" placeholder="Buscar" class="outline-none">
+            <form action="/bicicletas" method="GET">
+                @csrf
+                <img src="{{asset('/images/search.svg')}}">
+                <input type="text" name="search" placeholder="Buscar" class="outline-none" value="{{request('search')}}">
+                <button type="submit">buscar</button>
+            </form>
         </div>
         <a href="/bicicletas/crear" class="btn ease">Añadir
             <img src="{{asset('/images/add.svg')}}">
