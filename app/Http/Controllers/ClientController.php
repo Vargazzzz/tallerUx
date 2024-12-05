@@ -7,9 +7,16 @@ use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
-    public function index(){
-        $clients = Client::orderBy('id','desc')
-                    ->paginate(5);
+    public function index(Request $request){
+
+        $query= Client::with('bicycles')->orderBy('id','desc');
+
+        if ($request->has('search')){
+            $query->where ('ci', 'like', '%'. $request->input('search').'%');
+        }
+
+        $clients = $query->get();
+
         return view('clients.index', compact('clients'));
     }
     

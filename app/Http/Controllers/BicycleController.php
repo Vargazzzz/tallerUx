@@ -9,9 +9,19 @@ use Illuminate\Http\Request;
 
 class BicycleController extends Controller
 {
-    public function index(){
-        $bicycles = Bicycle::orderBy('id','desc')
-                    ->paginate(5);
+    public function index(Request $request){
+
+        $query= Bicycle::with('client')->orderBy('id','desc');
+
+        /*$bicycles = Bicycle::orderBy('id','desc')
+                    ->paginate(5);*/
+
+        if ($request->has('search')){
+            $query->where ('serial', 'like', '%'. $request->input('search').'%');
+        }
+
+        $bicycles = $query->get();
+
         return view('bicycles.index', compact('bicycles'));
     }
 

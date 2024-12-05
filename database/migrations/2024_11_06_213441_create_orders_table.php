@@ -17,15 +17,15 @@ return new class extends Migration
             $table->string('status');
             $table->foreignId('client_id')
             ->constrained()
-            ->onDelete('cascade')
+            ->onDelete()
             ->onUpdate('cascade');
             $table->foreignId('bicycle_id')
             ->constrained()
-            ->onDelete('cascade')
+            ->onDelete()
             ->onUpdate('cascade');
             $table->foreignId('mechanic_id')
             ->constrained()
-            ->onDelete('cascade')
+            ->onDelete()
             ->onUpdate('cascade');
             $table->timestamps();
         });

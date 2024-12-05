@@ -7,9 +7,16 @@ use Illuminate\Http\Request;
 
 class ComponentController extends Controller
 {
-    public function index(){
-        $components = Component::orderBy('id','desc')
-                    ->paginate(5);
+    public function index(Request $request){
+
+        $query= Component::orderBy('id','desc');
+
+        if ($request->has('search')){
+            $query->where ('serial', 'like', '%'. $request->input('search').'%');
+        }
+
+        $components = $query->get();
+
         return view('components.index', compact('components'));
     }
 

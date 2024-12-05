@@ -100,7 +100,11 @@ Route::get('ordenes/{order}', [OrderController::class, 'show'])->name('orders.sh
 // Ruta para agregar componentes a la orden
 Route::post('ordenes/{order}/componentes', [OrderController::class, 'addComponent'])->name('orders.addComponent');
 
+Route::delete('ordenes/{order}/componentes/{component}', [OrderController::class, 'removeComponent'])->name('orders.removeComponent');
+
 Route::put('componentes/{component}',[ComponentController::class,'update']);
+
+Route::delete('/ordenes/{order}',[OrderController::class,'destroy']);
 
 
 

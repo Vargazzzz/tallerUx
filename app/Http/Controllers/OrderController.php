@@ -12,9 +12,16 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    public function index(){
-        $orders = Order::orderBy('id','desc')
-                    ->paginate(5);
+
+    public function index(Request $request){
+        $query= Order::orderBy('id','desc');
+
+        if ($request->has('search')){
+            $query->where ('n_orden', 'like', '%'. $request->input('search').'%');
+        }
+
+        $orders = $query->get();
+
         return view('orders.index', compact('orders'));
     }
     
@@ -92,6 +99,17 @@ class OrderController extends Controller
 
         return view('orders.show', compact('order', 'totalCost', 'components'));
     }
+
+    public function removeComponent($orderId, $componentId){
+        $order = Order::findOrFail($orderId);
+        $order->components()->detach($componentId);
+
+        return redirect()->route('orders.show', $orderId)->with('success', 'Componente eliminado de la orden exitosamente');
+    }
     
+    public function destroy(Order $order){
+        $order->delete();
+        return redirect('/ordenes');
+    }
     
 }

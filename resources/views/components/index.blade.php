@@ -4,8 +4,12 @@
     <h1 class="title">Componentes</h1>
     <div class="flex justify-between">
         <div class="w-1/2 input">
-            <img src="{{asset('/images/search.svg')}}">
-            <input type="text" placeholder="Buscar" class="outline-none">
+            <form action="/componentes" method="GET">
+                @csrf
+                <img src="{{asset('/images/search.svg')}}">
+                <input type="text" name="search" placeholder="Buscar" class="outline-none" value="{{request('search')}}">
+                <button type="submit">buscar</button>
+            </form>
         </div>
         <a href="/componentes/crear" class="btn">Añadir
             <img src="{{ asset('/images/add.svg') }}">
