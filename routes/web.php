@@ -90,7 +90,7 @@ Route::get('/ordenes/crear',[OrderController::class,'create']);
 
 Route::post('/ordenes', [OrderController::class,'store']);
 
-//Route::get('/ordenes/{order}',[OrderController::class,'show']);
+Route::get('/ordenes/{order}',[OrderController::class,'show']);
 
 //Route::post('/ordenes/{order}/componentes',[OrderController::class, 'addComponent']);
 
