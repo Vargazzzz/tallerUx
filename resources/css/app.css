@@ -20,10 +20,14 @@
 
 
     .input {
-        @apply flex justify-start items-center gap-3 p-2 border-2 border-gray-bike-200 rounded-md;
+        @apply w-full bg-transparent flex justify-start items-center gap-3 py-2 px-5 border-2 border-gray-bike-200 rounded-l-md border-r-0;
 
         &:focus-within {
             @apply transition-colors duration-500 border-gray-bike-500;
+        }
+
+        input{
+            @apply bg-transparent
         }
     }
 
@@ -44,7 +48,10 @@
     }
 
     .content{
-        @apply mx-auto w-4/5 flex flex-col gap-10 py-10;
+        @apply bg-gris bg-cover bg-bottom w-full flex flex-col gap-10 py-10 text-white;
+        .content-main{            
+            @apply mx-auto w-4/5 flex flex-col gap-10 py-10;
+        }
 
         .formularios{
             @apply m-auto;
@@ -69,10 +76,10 @@
     }
 
     .style-preview{
-        @apply w-full border-b border-b-black py-3 flex gap-2.5;
+        @apply w-full border-b border-b-black py-3 flex items-center gap-2.5;
         input{ 
-            @apply w-fit;
-            background-color: #fff;
+            @apply w-[70%];
+            background-color: transparent;
         }
     }
 
@@ -86,13 +93,26 @@
             }
         }
     }
+    .select-component{
+        @apply w-full bg-transparent flex justify-start items-center gap-3 py-1 px-5 border-2 border-gray-bike-200 rounded-md ;
 
+        &:focus-within {
+            @apply transition-colors duration-500 border-gray-bike-500;
+        }
+    }
     .btn{
         @apply w-fit bg-black text-white flex justify-center items-center gap-2 px-4 py-2 rounded-md ease;
 
 
         &:hover {
-            @apply bg-black/85;
+            @apply bg-black/50;
+        }
+    }
+
+    .btn-search{
+        @apply w-[100px] h-full bg-black text-white flex justify-center items-center rounded-r-md ease;
+        &:hover {
+            @apply bg-black/50;
         }
     }
 }

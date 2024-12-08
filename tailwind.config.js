@@ -49,6 +49,7 @@ export default {
             backgroundImage: {
                 index: "url(/public/css/bg/fondo.webp)",
                 login_register: "url(/public/css/bg/fondoLR.webp)",
+                gris: "url('/public/css/bg/lamparas.jpg')"
             },
             FontFamily: {
                 nunito: ["Nunito"],

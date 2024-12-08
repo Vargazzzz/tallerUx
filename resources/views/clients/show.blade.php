@@ -32,15 +32,15 @@
                 </div>
                 <div class="style-preview">
                     <label>Teléfono:</label>
-                    <input type="text" class="outline-none" disabled>
+                    <input type="text" class="outline-none" value="{{$client->phone}}" disabled>
                 </div>
                 <div class="style-preview">
                     <label>Correo:</label>
-                    <input type="text" class="outline-none" disabled>
+                    <input type="text" class="outline-none" value="{{$client->email}}" disabled>
                 </div>
                 <div class="style-preview">
                     <label>Direccion:</label>
-                    <input type="text" class="outline-none" disabled>
+                    <input type="text" class="outline-none" value="{{$client->location}}" disabled>
                 </div>
                 <div class="style-preview">
                     <label>Fecha de creacion:</label>

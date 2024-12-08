@@ -105,7 +105,7 @@
                     @csrf
                     <div class="style-preview " >
                         <label for="component_id">Componente:</label>
-                        <select name="component_id" id="component_id">
+                        <select class="select-component outline-none" name="component_id" id="component_id">
                             @foreach ($components as $component)
                                 <option value="{{ $component->id }}">{{ $component->description }}</option>
                             @endforeach
@@ -113,7 +113,7 @@
                     </div>
                     <div class="style-preview">
                         <label for="quantity">Cantidad:</label>
-                        <input type="number" name="quantity" id="quantity" min="1" required placeholder="Ingrese cantidad" class="">
+                        <input type="number" name="quantity" id="quantity" min="1" required placeholder="Ingrese cantidad">
                     </div>
                     <button type="submit" class="btn">Agregar</button>
                 </form>

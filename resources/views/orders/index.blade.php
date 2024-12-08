@@ -2,16 +2,15 @@
 @section('content')
     <h1 class="title">Ordenes</h1>
     <div class="flex justify-between">
-        <div class="w-1/2 input">
-            <form action="/ordenes" method="GET">
+        <div class="w-1/2 flex">
+            <form action="/ordenes" method="GET" class="input">
                 @csrf
-                <img src="{{asset('/images/search.svg')}}">
-                <input type="text" name="search" placeholder="Buscar" class="outline-none" value="{{request('search')}}">
-                <button type="submit">buscar</button>
+                <input type="text" name="search" class="outline-none" placeholder="Buscar" value="{{request('search')}}">
             </form>
+            <button type="submit" class="btn-search"><img src="{{asset('/images/search.svg')}}"></button>
         </div>
-        <a href="/ordenes/crear" class="btn">Añadir
-            <img src="{{ asset('/images/add.svg') }}">
+        <a href="/ordenes/crear" class="btn ease">Añadir
+            <img src="{{asset('/images/add.svg')}}">
         </a>
     </div>
     <table>
