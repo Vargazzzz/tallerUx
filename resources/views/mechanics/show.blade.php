@@ -8,6 +8,8 @@
                 <h1 class="text-[24px] font-bold">Vista previa</h1>
             </div>
             <form class="flex gap-5" action="/mecanico/{{ $mechanic->id }}" method="POST">
+                @csrf
+                @method('DELETE')
                 <a href="/mecanico/{{ $mechanic->id }}/edit" class="btn">Editar
                     <img src="{{ asset('/images/pencil-light.svg') }}"></a>
                 <button type="submit" class="btn">

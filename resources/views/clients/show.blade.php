@@ -31,6 +31,10 @@
                     <input type="text" class="outline-none" value="{{ $client->name }}" disabled>
                 </div>
                 <div class="style-preview">
+                    <label>Cedula:</label>
+                    <input type="text" class="outline-none" value="{{ $client->ci }}" disabled>
+                </div>
+                <div class="style-preview">
                     <label>Teléfono:</label>
                     <input type="text" class="outline-none" value="{{$client->phone}}" disabled>
                 </div>
@@ -44,7 +48,7 @@
                 </div>
                 <div class="style-preview">
                     <label>Fecha de creacion:</label>
-                    <input type="text" class="outline-none" disabled>
+                    <input type="text" class="outline-none" value="{{$client->created_at}}" disabled>
                 </div>
             </div>
         </div>
@@ -54,26 +58,36 @@
                 <div class="style-preview items-center">
                     <label>Bicicleta</label>
                     <Icon name="ep:arrow-down" class="w-4 h-4" style="color: black" />
+                    <select name="bicycle_id" class="outline-none" onchange="this.form.submit()">
+                        <option value="">Seleccione una bicicleta</option>
+                        @foreach ($client->bicycles as $bicycle)
+                            <option value="{{ $bicycle->id }}" {{ request('bicycle_id') == $bicycle->id ? 'selected' : '' }}>
+                                {{ $bicycle->serial }}
+                            </option>
+                        @endforeach
+                    </select>
                 </div>
+                </div>
+                @if ($selectedBicycle)
                 <div class="style-preview">
                     <label>SKU:</label>
-                    <input type="text" class="outline-none" disabled>
+                    <input type="text" class="outline-none" value="{{ $selectedBicycle->serial }}" disabled>
                 </div>
                 <div class="style-preview">
                     <label>Modelo:</label>
-                    <input type="text" class="outline-none" disabled>
+                    <input type="text" class="outline-none" value="{{ $selectedBicycle->model }}" disabled>
                 </div>
                 <div class="style-preview">
                     <label>Marca:</label>
-                    <input type="text" class="outline-none" disabled>
+                    <input type="text" class="outline-none" value="{{ $selectedBicycle->brand }}" disabled>
                 </div>
                 <div class="style-preview">
                     <label>Tipo:</label>
-                    <input type="text" class="outline-none" disabled>
+                    <input type="text" class="outline-none" value="{{ $selectedBicycle->type }}" disabled>
                 </div>
                 <div class="style-preview">
                     <label>Color:</label>
-                    <input type="text" class="outline-none" disabled>
+                    <input type="text" class="outline-none" value="{{ $selectedBicycle->color }}" disabled>
                 </div>
                 <div class="style-preview">
                     <label>Ultima orden: </label>
@@ -81,20 +95,26 @@
                 </div>
                 <div class="style-preview">
                     <label>Fecha: </label>
-                    <input type="text" class="outline-none" disabled>
+                    <input type="text" class="outline-none" value="{{ $selectedBicycle->created_at }}" disabled>
                 </div>
+                @endif
             </div>
         </div>
     </form>
     {{-- <span class="h-[1px] bg-black"></span> --}}
     <div class="flex flex-col">
         <div class="style-preview items-center">
-            <p>Ordenes</p>
+            <p>Listado de Ordenes</p>
             <Icon name="ep:arrow-down" class="w-4 h-4" style="color: black" />
         </div>
         <div class="flex border-b gap-2.5 border-black py-3 mb-4">
-            <label>1.</label>
-            <p>ajsdfhbjkhdsf</p>
+            <ul>
+                @foreach ($client->orders as $order)
+                    <li>
+                        <a href="{{route('orders.show',$order->id)}}"> Orden #{{$order->n_order}}  Fecha: {{$order->created_at}}</a>
+                    </li>
+                @endforeach
+            </ul>
         </div>
         <a class="btn self-end">Servicios
             <img src="{{ asset('/images/add.svg') }}">

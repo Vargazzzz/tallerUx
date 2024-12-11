@@ -9,7 +9,9 @@
                     <h1 class="text-[24px] font-bold">Vista previa</h1>
                 </div>
             </div>
-            <form action="/clientes/{{ $client->id }}">
+            <form action="/clientes/{{ $client->id }}" method="POST">
+                @csrf
+                @method('DELETE')
                 <button class="btn">Eliminar
                     <img src="{{ asset('/images/trash-light.svg') }}">
                 </button>
@@ -18,6 +20,9 @@
         <div class="w-full h-[0.5px] bg-preview"></div>
     </div>
     <form action="/clientes/{{ $client->id }}" method="POST" class="grid grid-cols-2 gap-10">
+        @csrf
+
+        @method('PUT')
         <!-- col 1 -->
         <div class="flex flex-col justify-between">
             <div class="flex flex-col">
@@ -27,19 +32,23 @@
                 </div>
                 <div class="style-preview">
                     <label>Nombre:</label>
-                    <input type="text" class="outline-none">
+                    <input type="text" name="name" value="{{old('name', $client->name)}}" class="outline-none">
+                </div>
+                <div class="style-preview">
+                    <label>Cedula:</label>
+                    <input type="text" name="ci" value="{{old('name', $client->ci)}}" class="outline-none">
                 </div>
                 <div class="style-preview">
                     <label>Teléfono:</label>
-                    <input type="text" class="outline-none">
+                    <input type="text" name="phone" value="{{old('name', $client->phone)}}" class="outline-none">
                 </div>
                 <div class="style-preview">
                     <label>Correo:</label>
-                    <input type="text" class="outline-none">
+                    <input type="text" name="email" value="{{old('name', $client->email)}}" class="outline-none">
                 </div>
                 <div class="style-preview">
                     <label>Direccion:</label>
-                    <input type="text" class="outline-none">
+                    <input type="text" name="location" value="{{old('name', $client->location)}}" class="outline-none">
                 </div>
             </div>
         </div>
@@ -80,6 +89,15 @@
                 </div>
             </div>
         </div>
+        <div class="flex justify-end gap-5">
+            {{-- <a href="#" class="btn">Servicios
+                <img src="{{ asset('/images/add.svg') }}">
+            </a> --}}
+            <button type="submit" class="btn">
+                Guardar
+                <img src="{{ asset('/images/save.svg') }}">
+            </button>
+        </div>
     </form>
     {{-- <span class="h-[1px] bg-black"></span> --}}
     <div class="flex flex-col">
@@ -91,15 +109,7 @@
             <label>1.</label>
             <p>ajsdfhbjkhdsf</p>
         </div>
-        <div class="flex justify-end gap-5">
-            {{-- <a href="#" class="btn">Servicios
-                <img src="{{ asset('/images/add.svg') }}">
-            </a> --}}
-            <button type="button" class="btn">
-                Guardar
-                <img src="{{ asset('/images/save.svg') }}">
-            </button>
-        </div>
+        
     </div>
 @endsection
 

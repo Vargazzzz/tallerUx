@@ -38,8 +38,14 @@ class ClientController extends Controller
         return redirect('/clientes');
     }
 
-    public function show(Client $client){
-        return view('clients.show',compact('client'));
+    public function show(Request $request,Client $client){
+        $client->load(['bicycles','orders']);
+        $selectedBicycle = null;
+
+        if($request->has('bicycle_id')){
+            $selectedBicycle = $client->bicycles->find($request->input('bicycle_id'));
+        }
+        return view('clients.show',compact('client','selectedBicycle'));
     }
 
     public function edit(Client $client){

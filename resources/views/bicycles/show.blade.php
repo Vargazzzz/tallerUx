@@ -8,12 +8,16 @@
                 <h1 class="text-[24px] font-bold">Vista previa</h1>
             </div>
             <form action="/bicicletas/{{$bicycle->id}}" method="POST" class="flex gap-5">
+    
+            @csrf
+            @method('DELETE')
+
                 <a href="/bicicletas/{{ $bicycle->id }}/edit"
                     class="bg-black px-4 py-2 rounded-lg text-white flex gap-2.5 w-fit items-center transition-all duration-300 ease-in-out hover:bg-black/80">Editar
                     <img src="{{asset('/images/pencil-light.svg')}}">
                 </a>
                 <button
-                    class="bg-black px-4 py-2 rounded-lg text-white flex gap-2.5 w-fit items-center transition-all duration-300 ease-in-out hover:bg-black/80">Eliminar
+                    class="bg-black px-4 py-2 rounded-lg text-white flex gap-2.5 w-fit items-center transition-all duration-300 ease-in-out hover:bg-black/80" type="submit">Eliminar
                     <img src="{{asset('/images/trash-light.svg')}}">
                 </button>
             </form>
@@ -29,7 +33,7 @@
                 </div>
                 <div class="style-preview">
                     <label>SKU:</label>
-                    <input type="text" class="outline-none bg-white w-full" value="" disabled>
+                    <input type="text" class="outline-none bg-white w-full" value="{{$bicycle->serial}}" disabled>
                 </div>
                 <div class="style-preview">
                     <label>Modelo:</label>
@@ -63,6 +67,10 @@
                 <div class="style-preview">
                     <label>Nombre:</label>
                     <input type="text" class="outline-none bg-white w-full" value="{{ $bicycle->client->name }}" disabled>
+                </div>
+                <div class="style-preview">
+                    <label>Cedula:</label>
+                    <input type="text" class="outline-none bg-white w-full" value="{{$bicycle->client->ci}}" disabled>
                 </div>
                 <div class="style-preview">
                     <label>Teléfono:</label>

@@ -27,9 +27,9 @@
         <tbody>
             @foreach ($orders as $orden)
                 <tr>
-                    <td>{{ $orden->id }}</td>
+                    <td>{{ $orden->n_order }}</td>
                     <td>{{ $orden->client->name }}</td>
-                    <td>{{ $orden->bicycle->serial }}</td>
+                    <td>{{ $orden->bicycle->model }}</td>
                     <td>{{ $orden->mechanic->name }}</td>
                     <td>{{ $orden->status }}</td>
                     <td class="accions">
