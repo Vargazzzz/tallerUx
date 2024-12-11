@@ -107,7 +107,7 @@
                         <label for="component_id">Componente:</label>
                         <select class="select-component outline-none" name="component_id" id="component_id">
                             @foreach ($components as $component)
-                                <option value="{{ $component->id }}">{{ $component->description }}</option>
+                                <option value="{{ $component->id }}">{{ $component->serial }} / {{ $component->description }}</option>
                             @endforeach
                         </select>
                     </div>
