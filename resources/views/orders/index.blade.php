@@ -6,8 +6,9 @@
             <form action="/ordenes" method="GET" class="input">
                 @csrf
                 <input type="text" name="search" class="outline-none" placeholder="Buscar" value="{{request('search')}}">
+                <button type="submit" class="btn-search"><img src="{{asset('/images/search.svg')}}"></button>
             </form>
-            <button type="submit" class="btn-search"><img src="{{asset('/images/search.svg')}}"></button>
+            
         </div>
         <a href="/ordenes/crear" class="btn ease">Añadir
             <img src="{{asset('/images/add.svg')}}">
