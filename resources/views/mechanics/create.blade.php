@@ -3,7 +3,7 @@
 @section('content')
     <div class="formularios flex flex-col gap-10 justify-center items-center">
         <h1 class="title text-center">Formulario nuevo mecanico</h1>
-        <form action="/mecanico" class="form w-[450px]" method="POST">
+        <form action="/mecanico" autocomplete="off" class="form w-[450px]" method="POST">
             @csrf
             <div>
                 <input type="number" name="ci" placeholder="Cedula:" value="{{ old('ci') }}">

@@ -18,7 +18,7 @@
         </div>
         <div class="w-full h-[0.5px] bg-preview"></div>
     </div>
-    <form class="grid grid-cols-2 gap-10">
+    <div class="grid grid-cols-2 gap-10">
         <!-- col 1 -->
         <div class="flex flex-col justify-between">
             <div class="flex flex-col">
@@ -36,39 +36,39 @@
                 </div>
                 <div class="style-preview">
                     <label>Teléfono:</label>
-                    <input type="text" class="outline-none" value="{{$client->phone}}" disabled>
+                    <input type="text" class="outline-none" value="{{ $client->phone }}" disabled>
                 </div>
                 <div class="style-preview">
                     <label>Correo:</label>
-                    <input type="text" class="outline-none" value="{{$client->email}}" disabled>
+                    <input type="text" class="outline-none" value="{{ $client->email }}" disabled>
                 </div>
                 <div class="style-preview">
                     <label>Direccion:</label>
-                    <input type="text" class="outline-none" value="{{$client->location}}" disabled>
+                    <input type="text" class="outline-none" value="{{ $client->location }}" disabled>
                 </div>
                 <div class="style-preview">
                     <label>Fecha de creacion:</label>
-                    <input type="text" class="outline-none" value="{{$client->created_at}}" disabled>
+                    <input type="text" class="outline-none" value="{{ $client->created_at }}" disabled>
                 </div>
             </div>
         </div>
         <!-- col 2 -->
         <div>
             <div>
-                <div class="style-preview items-center">
+                <div class="style-preview">
                     <label>Bicicleta</label>
-                    <Icon name="ep:arrow-down" class="w-4 h-4" style="color: black" />
-                    <select name="bicycle_id" class="outline-none" onchange="this.form.submit()">
-                        <option value="">Seleccione una bicicleta</option>
+                    <select name="bicycle_id" class="outline-none select-component" onchange="this.form.submit()">
+                        <option class="text-black" value="">Seleccione una bicicleta</option>
                         @foreach ($client->bicycles as $bicycle)
-                            <option value="{{ $bicycle->id }}" {{ request('bicycle_id') == $bicycle->id ? 'selected' : '' }}>
+                            <option class="text-black" value="{{ $bicycle->id }}"
+                                {{ request('bicycle_id') == $bicycle->id ? 'selected' : '' }}>
                                 {{ $bicycle->serial }}
                             </option>
                         @endforeach
                     </select>
                 </div>
-                </div>
-                @if ($selectedBicycle)
+            </div>
+            @if ($selectedBicycle)
                 <div class="style-preview">
                     <label>SKU:</label>
                     <input type="text" class="outline-none" value="{{ $selectedBicycle->serial }}" disabled>
@@ -97,11 +97,9 @@
                     <label>Fecha: </label>
                     <input type="text" class="outline-none" value="{{ $selectedBicycle->created_at }}" disabled>
                 </div>
-                @endif
-            </div>
+            @endif
         </div>
-    </form>
-    {{-- <span class="h-[1px] bg-black"></span> --}}
+    </div>
     <div class="flex flex-col">
         <div class="style-preview items-center">
             <p>Listado de Ordenes</p>
@@ -111,49 +109,12 @@
             <ul>
                 @foreach ($client->orders as $order)
                     <li>
-                        <a href="{{route('orders.show',$order->id)}}"> Orden #{{$order->n_order}}  Fecha: {{$order->created_at}}</a>
+                        <a href="{{ route('orders.show', $order->id) }}"> Orden #{{ $order->n_order }} Fecha:
+                            {{ $order->created_at }}</a>
                     </li>
                 @endforeach
             </ul>
         </div>
-        <a class="btn self-end">Servicios
-            <img src="{{ asset('/images/add.svg') }}">
-        </a>
     </div>
+    {{-- <span class="h-[1px] bg-black"></span> --}}
 @endsection
-{{-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-
-    <a href="/clientes">volver a clientes</a>
-
-    <h1>cliente {{$client->name}}</h1>
-    <p>{{$client->ci}}</p>
-    <p>{{$client->phone}}</p>
-    <p>{{$client->email}}</p>
-    <p>{{$client->location}}</p>
-
-    @foreach ($client->bicycles as $bicycle)
-    <p>{{$bicycle->serial}}</p>
-    @endforeach
-
-    <a href="/clientes/{{$client->id}}/edit">editar cliente</a>
-
-    <form action="/clientes/{{$client->id}}" method="POST">
-        
-        @csrf
-        @method('DELETE')
-        
-        <button type="submit">
-            eliminar cliente
-        </button>
-    </form>
-
-</body>
-</html> --}}

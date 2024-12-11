@@ -16,10 +16,10 @@
             </ul>
         </div>
     @endif --}}
-        <form action="/clientes" class="form" method="POST">
+        <form action="/clientes" class="form" autocomplete="off" method="POST">
             @csrf
             <div class="relative">
-                <input type="number" class="form-input" name="ci" placeholder="Cedula:">
+                <input type="number" name="ci" placeholder="Cedula:">
 
                 @error('ci')
                     <p>{{ $message }}</p>

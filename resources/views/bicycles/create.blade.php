@@ -3,7 +3,7 @@
 @section('content')
     <div class="formularios flex flex-col gap-5 justify-center items-center">
         <h1 class="title text-center">Formulario nueva bicicleta</h1>
-        <form action="/bicicletas" class="form" method="POST">
+        <form action="/bicicletas" autocomplete="off" class="form" method="POST">
             @csrf
             <div>
                 <input type="text" name="serial" placeholder="Serial:" value="{{ old('serial') }}">

@@ -88,13 +88,16 @@
         div{
             @apply flex gap-5;
             input {
-                @apply w-[450px] py-2.5 border-b border-b-black outline-none;
-
+                @apply bg-transparent w-[450px] py-2.5 border-b border-b-black outline-none;
             }
         }
     }
     .select-component{
         @apply w-full bg-transparent flex justify-start items-center gap-3 py-1 px-5 border-2 border-gray-bike-200 rounded-md ;
+
+        option{
+            @apply text-black;
+        }
 
         &:focus-within {
             @apply transition-colors duration-500 border-gray-bike-500;

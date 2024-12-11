@@ -103,17 +103,20 @@
                 <h2 class="title">Agregar Componente</h2>
                 <form action="{{ route('orders.addComponent', $order->id) }}" method="POST" class="flex gap-5">
                     @csrf
-                    <div class="style-preview " >
+                    <div class="style-preview ">
                         <label for="component_id">Componente:</label>
                         <select class="select-component outline-none" name="component_id" id="component_id">
+                            <option class="text-black" value="">Seleccione una bicicleta</option>
                             @foreach ($components as $component)
-                                <option value="{{ $component->id }}">{{ $component->serial }} / {{ $component->description }}</option>
+                                <option value="{{ $component->id }}">{{ $component->serial }} /
+                                    {{ $component->description }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="style-preview">
                         <label for="quantity">Cantidad:</label>
-                        <input type="number" name="quantity" id="quantity" min="1" required placeholder="Ingrese cantidad">
+                        <input type="number" name="quantity" id="quantity" min="1" required
+                            placeholder="Ingrese cantidad">
                     </div>
                     <button type="submit" class="btn">Agregar</button>
                 </form>
@@ -122,13 +125,19 @@
                 <h2 class="title">Componentes</h2>
                 <ul class="flex flex-col gap-2">
                     @foreach ($order->components as $component)
-                        <li class="list-disc">{{ $component->description }} ({{ $component->pivot->quantity }} x ${{ $component->price }})
-                            - Total: ${{ $component->pivot->total }}</li>
-                            <form action ="{{route ('orders.removeComponent', ['order'=> $order->id, 'component'=>$component->id])}}" method= "POST">
+                        <div class="flex gap-10">
+                            <li class="list-disc">{{ $component->description }} ({{ $component->pivot->quantity }} x
+                                ${{ $component->price }})
+                                - Total: ${{ $component->pivot->total }}</li>
+                            <span>-</span>
+                            <form
+                                action ="{{ route('orders.removeComponent', ['order' => $order->id, 'component' => $component->id]) }}"
+                                method= "POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit">eliminar componente de la orden</button>
+                                <button type="submit">Eliminar componente de la orden</button>
                             </form>
+                        </div>
                     @endforeach
                 </ul>
                 <p><strong>Costo Total: ${{ $totalCost }}</strong></p>
