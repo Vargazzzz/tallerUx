@@ -1,4 +1,5 @@
 @extends('layouts.template')
+@section('title','Ordenes')
 @section('content')
     <h1 class="title">Ordenes</h1>
     <div class="flex justify-between">

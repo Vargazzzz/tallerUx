@@ -17,7 +17,7 @@ class OrderController extends Controller
         $query= Order::orderBy('id','desc');
 
         if ($request->has('search')){
-            $query->where ('n_orden', 'like', '%'. $request->input('search').'%');
+            $query->where ('n_order', 'like', '%'. $request->input('search').'%');
         }
 
         $orders = $query->get();
