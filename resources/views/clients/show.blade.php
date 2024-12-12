@@ -18,7 +18,7 @@
         </div>
         <div class="w-full h-[0.5px] bg-preview"></div>
     </div>
-    <div class="grid grid-cols-2 gap-10">
+    <form class="grid grid-cols-2 gap-10">
         <!-- col 1 -->
         <div class="flex flex-col justify-between">
             <div class="flex flex-col">
@@ -99,7 +99,7 @@
                 </div>
             @endif
         </div>
-    </div>
+    </form>
     <div class="flex flex-col">
         <div class="style-preview items-center">
             <p>Listado de Ordenes</p>

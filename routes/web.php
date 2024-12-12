@@ -5,10 +5,10 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ComponentController;
 use App\Http\Controllers\MechanicController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PdfController;
 use App\Models\Bicycle;
 use App\Models\Client;
 use App\Models\Mechanic;
-
 use Illuminate\Support\Facades\Route;
 
 
@@ -90,7 +90,7 @@ Route::get('/ordenes/crear',[OrderController::class,'create']);
 
 Route::post('/ordenes', [OrderController::class,'store']);
 
-Route::get('/ordenes/{order}',[OrderController::class,'show']);
+//Route::get('/ordenes/{order}',[OrderController::class,'show']);
 
 //Route::post('/ordenes/{order}/componentes',[OrderController::class, 'addComponent']);
 
@@ -102,11 +102,13 @@ Route::post('ordenes/{order}/componentes', [OrderController::class, 'addComponen
 
 Route::delete('ordenes/{order}/componentes/{component}', [OrderController::class, 'removeComponent'])->name('orders.removeComponent');
 
-Route::put('componentes/{component}',[ComponentController::class,'update']);
-
 Route::delete('/ordenes/{order}',[OrderController::class,'destroy']);
 
+Route::get('ordenes/{order}/pdf', [PDFController::class, 'generatePDF'])->name('orders.generatePDF');
 
+Route::get('ordenes/{order}/reporte', [PdfController::class, 'generatePDF'])->name('orders.report');
+
+Route::put('componentes/{component}',[ComponentController::class,'update']);
 
 
 

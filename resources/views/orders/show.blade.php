@@ -106,7 +106,7 @@
                     <div class="style-preview ">
                         <label for="component_id">Componente:</label>
                         <select class="select-component outline-none" name="component_id" id="component_id">
-                            <option class="text-black" value="">Seleccione una bicicleta</option>
+                            <option class="text-black" value="">Seleccione un componente</option>
                             @foreach ($components as $component)
                                 <option value="{{ $component->id }}">{{ $component->serial }} /
                                     {{ $component->description }}</option>
@@ -142,6 +142,7 @@
                 </ul>
                 <p><strong>Costo Total: ${{ $totalCost }}</strong></p>
             </div>
+            <a href="{{ route('orders.generatePDF', $order->id) }}" class="btn" target="_blank">Descargar PDF</a>
         </div>
     </div>
 @endsection
